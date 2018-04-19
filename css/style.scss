@@ -4,4 +4,13 @@
 
 .mainbox {
     height: 800px;
+    display: flex;
+}
+
+.boxTop {
+    border: 1px solid gray;
+    height: 250px;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 5px;
 }
