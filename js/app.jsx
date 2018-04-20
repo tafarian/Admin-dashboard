@@ -2,8 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './../css/style.scss';
 
-// import charts
-import {Bar, Line, Pie} from 'react-chartjs-2';
+// import react-router
+import {
+    Router,
+    Route,
+    Link,
+    IndexLink,
+    IndexRoute,
+    hashHistory
+} from 'react-router';
+
+// import components
+import Email from './Email.jsx';
+import Calendar from './Calendar.jsx';
+import Forms from './Forms.jsx';
+import Tables from './Tables.jsx';
+import Maps from './Maps.jsx';
+import Dashboard from './Dashboard.jsx';
+import Charts from './Charts.jsx';
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -13,90 +29,28 @@ document.addEventListener('DOMContentLoaded', function(){
                 <div className="col-sm-3">
                     <h3>Admin dashboard</h3>
                     <ul className="list-group">
-                        <li className="list-group-item">Dashboard</li>
-                        <li className="list-group-item">Email</li>
-                        <li className="list-group-item">Calendar</li>
-                        <li className="list-group-item">Charts</li>
-                        <li className="list-group-item">Forms</li>
-                        <li className="list-group-item">Tables</li>
-                        <li className="list-group-item">Maps</li>
+                        <li className="list-group-item"><Link to="/">Dashboard</Link></li>
+                        <li className="list-group-item"><Link to="/email">Email</Link></li>
+                        <li className="list-group-item"><Link to="/calendar">Calendar</Link></li>
+                        <li className="list-group-item"><Link to="/charts">Charts</Link></li>
+                        <li className="list-group-item"><Link to="/forms">Forms</Link></li>
+                        <li className="list-group-item"><Link to="/tables">Tables</Link></li>
+                        <li className="list-group-item"><Link to="/maps">Maps</Link></li>
                     </ul>
                 </div>
             )
         }
     }
 
-    class Main extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                usersChartData: {
-                    labels: ['January', 'Ferbuary', 'March', 'April'],
-                    datasets: [
-                        {
-                            label: 'Users online',
-                            data: [
-                                350,
-                                300,
-                                400,
-                                280
-                            ],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.6)',
-                                    'rgba(255, 99, 132, 0.6)',
-                                    'rgba(255, 99, 132, 0.6)',
-                                    'rgba(255, 99, 132, 0.6)',
-                                ]
-                        }
-                    ]
-                },
-                viewsChartData: {
-                    labels: ['January', 'Ferbuary', 'March', 'April'],
-                    datasets: [
-                        {
-                            label: 'Views',
-                            data: [
-                                1200,
-                                1600,
-                                1250,
-                                2400
-                            ],
-                                backgroundColor: [
-                                    'rgba(22, 87, 25, 0.6)',
-                                    'rgba(22, 87, 25, 0.6)',
-                                    'rgba(22, 87, 25, 0.6)',
-                                    'rgba(22, 87, 25, 0.6)',
-                                ]
-                        }
-                    ]
-                }
-            }
-        }
-        
-        
+    class Template extends React.Component {
         render() {
             return (
-                <div className="col-sm-9">
-                    <div className="container">
-                        <div className="row">
-                            <h3 className="text">TEST</h3>
-                        </div>
-                        <div className="row bordero">
-                            <div className="container mainbox">
-                                <div className="boxTop">
-                                    <Bar
-                                        data={this.state.usersChartData}
-                                        options={{}}/>
-                                </div>
-                                <div className="boxTop">
-                                    <Line
-                                        data={this.state.viewsChartData}
-                                        options={{}}/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                </div> 
+                <div className="container">
+                    <div className="row">
+                        <SideBar/>
+                        { this.props.children }
+                    </div>
+                </div>
             )
         }
     }
@@ -104,12 +58,17 @@ document.addEventListener('DOMContentLoaded', function(){
     class App extends React.Component {
         render() {
             return (
-                <div className="container">
-                    <div className="row">
-                        <SideBar/>
-                        <Main/>
-                    </div>
-                </div>
+                <Router history={hashHistory}>
+                    <Route path='/' component={Template}>
+                        <IndexRoute component={Dashboard} />
+                        <Route path='/email' component={Email} />
+                        <Route path='/calendar' component={Calendar} />
+                        <Route path='/charts' component={Charts} />
+                        <Route path='/forms' component={Forms} />
+                        <Route path='/tables' component={Tables} />
+                        <Route path='/maps' component={Maps} />
+                    </Route>
+                </Router>
                 )
         }
 
