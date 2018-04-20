@@ -14,7 +14,7 @@ import {
 
 // import components
 import Email from './Email.jsx';
-import Calendar from './Calendar.jsx';
+import DateCalendar from './DateCalendar.jsx';
 import Forms from './Forms.jsx';
 import Tables from './Tables.jsx';
 import Maps from './Maps.jsx';
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     <Route path='/' component={Template}>
                         <IndexRoute component={Dashboard} />
                         <Route path='/email' component={Email} />
-                        <Route path='/calendar' component={Calendar} />
+                        <Route path='/calendar' component={DateCalendar} />
                         <Route path='/charts' component={Charts} />
                         <Route path='/forms' component={Forms} />
                         <Route path='/tables' component={Tables} />
