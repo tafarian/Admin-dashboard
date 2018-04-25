@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import charts
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Bar, Line, Pie, Doughnut} from 'react-chartjs-2';
 
 class Charts extends React.Component {
     constructor(props) {
@@ -46,6 +46,46 @@ class Charts extends React.Component {
                             ]
                     }
                 ]
+            },
+            usersCountry: {
+                labels: ['Poland', 'Germany', 'France', 'United Kingdom'],
+                datasets: [
+                    {
+                        label: 'Users origin',
+                        data: [
+                            700,
+                            250,
+                            100,
+                            550
+                        ],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(255, 255, 0, 0.6)',
+                                'rgba(255, 45, 255, 0.6)',
+                                'rgba(40, 2, 200, 0.6)',
+                            ]
+                    }
+                ]
+            },
+            usersDevice: {
+                labels: ['PC', 'Mobile', 'Tablet', 'Other'],
+                datasets: [
+                    {
+                        label: 'mobiles',
+                        data: [
+                            500,
+                            450,
+                            200,
+                            100
+                        ],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(255, 255, 0, 0.6)',
+                                'rgba(255, 45, 255, 0.6)',
+                                'rgba(40, 2, 200, 0.6)',
+                            ]
+                    }
+                ]
             }
         }
     }
@@ -68,6 +108,18 @@ class Charts extends React.Component {
                             <div className="boxTop">
                                 <Line
                                     data={this.state.viewsChartData}
+                                    options={{}}/>
+                            </div>
+                        </div>
+                        <div className="container mainbox">
+                            <div className="boxTop">
+                                <Pie
+                                    data={this.state.usersCountry}
+                                    options={{}}/>
+                            </div>
+                            <div className="boxTop">
+                                <Doughnut
+                                    data={this.state.usersDevice}
                                     options={{}}/>
                             </div>
                         </div>
