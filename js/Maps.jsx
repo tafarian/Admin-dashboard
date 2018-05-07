@@ -20,7 +20,7 @@ class Maps extends React.Component {
                     <h3 className="text">Maps</h3>
                 </div>
                 <div className="row bordero">
-                    <div className="container mainbox">
+                    <div className="container mapsbox">
                     <GoogleMapReact
                         defaultCenter={ this.props.center }
                         defaultZoom={ this.props.zoom }>
