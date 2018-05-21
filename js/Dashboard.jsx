@@ -10,7 +10,16 @@ class Dashboard extends React.Component {
                     </div>
                     <div className="row bordero">
                         <div className="container mainbox">
-                            
+                            <div className="container successAlert">
+                                <span>Success</span>
+                                <p>You successfully logged into dashboard.</p>
+                            </div>
+                        </div>
+                        <div className="container mainbox">
+                            <div className="container failureAlert">
+                                <span>Failure</span>
+                                <p>You unsuccessfully logged into dashboard.</p>
+                            </div>
                         </div>
                     </div>
                 </div>  

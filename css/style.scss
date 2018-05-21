@@ -19,3 +19,43 @@
     margin-top: 10px;
     margin-left: 5px;
 }
+
+.successAlert {
+    border: 1px solid green;
+    border-radius: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: rgba(65, 180, 78, 0.64);
+    height: 35px;
+    span {
+        border: 1px solid green;
+        background-color: green;
+        border-radius: 15px;
+        color: white;
+        font-size: 14px;
+    }
+    p {
+        float: right;
+        font-size: 14px;
+    }
+}
+
+.failureAlert {
+    border: 1px solid red;
+    border-radius: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: rgba(180, 65, 65, 0.64);
+    height: 35px;
+    span {
+        border: 1px solid red;
+        background-color: red;
+        border-radius: 15px;
+        color: white;
+        font-size: 14px;
+    }
+    p {
+        float: right;
+        font-size: 14px;
+    }
+}

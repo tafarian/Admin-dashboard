@@ -24,6 +24,14 @@ import Charts from './Charts.jsx';
 document.addEventListener('DOMContentLoaded', function(){
 
     class SideBar extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = {
+              showMenu: false,
+            };
+        }
+
         render() {
             return (
                 <div className="col-sm-3">
